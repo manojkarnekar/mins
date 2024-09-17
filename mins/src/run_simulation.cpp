@@ -147,7 +147,7 @@ int main(int argc, char **argv) {
 
 void system_setup(int argc, char **argv) {
   // Ensure we have a path, if the user passes it then we should use it
-  string config_path = "unset_path_to_config.yaml";
+  string config_path = "/home/flo/mins_ws/src/mins/mins/config/simulation/config.yaml";
   argc > 1 ? config_path = argv[1] : string();
 
   // Launch our ros node
