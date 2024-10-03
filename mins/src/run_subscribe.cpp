@@ -51,7 +51,7 @@ using namespace mins;
 int main(int argc, char **argv) {
 
   // Ensure we have a path, if the user passes it then we should use it
-  string config_path = "src/mins/mins/config/euroc_mav/config.yaml";
+  string config_path = "src/mins/mins/config/oakd/config.yaml";
   argc > 1 ? config_path = argv[1] : string();
 
   // Launch our ros node

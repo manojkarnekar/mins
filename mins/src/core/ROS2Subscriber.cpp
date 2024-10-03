@@ -193,12 +193,13 @@ void ROS2Subscriber::callback_stereo_C(const CompressedImage::ConstSharedPtr msg
 
 void ROS2Subscriber::callback_wheel(const JointState::SharedPtr msg) {
   // Return if the message contains other than wheel measurement info
-  if (find(op->wheel->sub_topics.begin(), op->wheel->sub_topics.end(), msg->name.at(0)) == op->wheel->sub_topics.end())
-    return;
+  // if (find(op->wheel->sub_topics.begin(), op->wheel->sub_topics.end(), msg->name.at(0)) == op->wheel->sub_topics.end())
+  //   return;
 
   WheelData data = ROS2Helper::JointState2Data(msg);
   sys->feed_measurement_wheel(data);
   PRINT1(YELLOW "[SUB] Wheel measurement: %.3f|%.3f,%.3f\n" RESET, data.time, data.m1, data.m2);
+  PRINT2("subscribing to wheel: %s\n", op->wheel->topic.c_str());
 }
 
 void ROS2Subscriber::callback_gnss(const NavSatFix::SharedPtr msg, int gps_id) {
